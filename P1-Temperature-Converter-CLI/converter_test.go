@@ -1,7 +1,8 @@
-package converter
+package main
 
 import (
 	"math"
+	converter "temperature-converter-cli/converter"
 	"testing"
 )
 
@@ -27,7 +28,7 @@ func TestCelsiusToFahrenheit(t *testing.T) {
 	for _, tt := range tests {
 		tt := tt // capture range variable
 		t.Run(tt.name, func(t *testing.T) {
-			result := CelsiusToFahrenheit(tt.celsius)
+			result := converter.CelsiusToFahrenheit(tt.celsius)
 			if !almostEqual(result, tt.expected, 0.01) {
 				t.Errorf("CelsiusToFahrenheit(%v) = %v; want %v", tt.celsius, result, tt.expected)
 			}
@@ -52,7 +53,7 @@ func TestFahrenheitToCelsius(t *testing.T) {
 	for _, tt := range tests {
 		tt := tt // capture range variable
 		t.Run(tt.name, func(t *testing.T) {
-			result := FahrenheitToCelsius(tt.fahrenheit)
+			result := converter.FahrenheitToCelsius(tt.fahrenheit)
 			if !almostEqual(result, tt.expected, 0.01) {
 				t.Errorf("FahrenheitToCelsius(%v) = %v; want %v", tt.fahrenheit, result, tt.expected)
 			}
